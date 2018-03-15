@@ -75,7 +75,6 @@ public class Star {
 	}
 
 	public Collection<City> getCities() {
-		
 		return cities;
 	}
 

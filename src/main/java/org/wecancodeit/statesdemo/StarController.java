@@ -26,10 +26,10 @@ public class StarController {
 		return starRepo.findOne(id);
 	}
 	
-	@RequestMapping("/states/{abbreviation}/cities")
-	public Iterable<City> findAll(@PathVariable(value = "abb") String abb) {
-		
-		return cityRepo.findAll();
+	@RequestMapping("/stars/{abb}/cities")
+	public Collection<City> findAllCities(@PathVariable(value = "abb") String abb) {
+		Star state = starRepo.findOneByAbb(abb);
+		return state.getCities();
 	}
 	
 	

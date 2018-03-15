@@ -29,26 +29,26 @@ public class StatePopulator implements CommandLineRunner {
 		Fish guadalupe = new Fish("Guadalupe Bass", "Micropterus treculii", "image/url");
 		fishRepo.save(guadalupe); //Texas
 		
-		City columbus = new City("Columbus",860090);
-		cityRepo.save(columbus); 
-		City cleveland =new City("Cleveland",385809);
-		cityRepo.save(cleveland); 
-		City honalulu = new City("Honolulu", 374658); 
-		cityRepo.save(honalulu);
-		City lincoln = new City("Lincoln", 280364); 
-		cityRepo.save(lincoln);
-		City austin = new City("Austin", 947890);
-		cityRepo.save(austin);
 		
-		Star ohio = new Star("OH", "Ohio", "Birthplace of aviation", walleye, "citiesUrl");
+		Star ohio = new Star("OH", "Ohio", "Birthplace of aviation", walleye, "/stars/OH/cities");
 		stateRepo.save(ohio);
-		Star hawaii = new Star("HI", "Hawaii", "This islands of Aloha", triggerFish, "citiesUrl");
+		Star hawaii = new Star("HI", "Hawaii", "This islands of Aloha", triggerFish, "/stars/HI/cities");
 		stateRepo.save(hawaii); 
-		Star nebraska = new Star("NE", "Nebraska", "Equality before the Law", channelCatFish , "citiesUrl");
+		Star nebraska = new Star("NE", "Nebraska", "Equality before the Law", channelCatFish , "/stars/NE/cities");
 		stateRepo.save(nebraska); 
-		Star texas = new Star("TX", "Texas", "Friendship", guadalupe , "citiesUrl");
+		Star texas = new Star("TX", "Texas", "Friendship", guadalupe , "/stars/TX/cities");
 		stateRepo.save(texas); 
 		
+		City columbus = new City("Columbus",860090,ohio);
+		cityRepo.save(columbus); 
+		City cleveland =new City("Cleveland",385809,ohio);
+		cityRepo.save(cleveland); 
+		City honalulu = new City("Honolulu", 374658,hawaii); 
+		cityRepo.save(honalulu);
+		City lincoln = new City("Lincoln", 280364,nebraska); 
+		cityRepo.save(lincoln);
+		City austin = new City("Austin", 947890,texas);
+		cityRepo.save(austin);
 		
 
 	}

@@ -18,7 +18,7 @@ public class City {
 	private String cityName;
 	private int pop;
 
-//	@JsonIgnore
+	@JsonIgnore
 	@ManyToOne
 	private Star territory;
 	
@@ -28,6 +28,12 @@ public class City {
 	public City(String cityName, int pop) {
 		this.cityName = cityName;
 		this.pop = pop;
+	}
+	
+	public City(String cityName, int pop, Star star) {
+		this.cityName = cityName;
+		this.pop = pop;
+		territory = star;
 	}
 	
 	public String getCityName() {
