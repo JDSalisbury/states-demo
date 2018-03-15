@@ -7,4 +7,6 @@ Use an HTML form to create new cities. Use AJAX to display city and state inform
 
 ![SC2](/images/SC2.png)
 
+Collaborated with [See his gitHub Site here!](https://github.com/vincentgilford)
+
 ![We Can Code IT](/images/WCCIT.png)																		
