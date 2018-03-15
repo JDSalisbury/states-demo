@@ -40,22 +40,17 @@ public class StatePopulator implements CommandLineRunner {
 		City austin = new City("Austin", 947890);
 		cityRepo.save(austin);
 		
-		State ohio = new State("OH", "Ohio", "Birthplace of aviation", walleye, "citiesUrl");
+		Star ohio = new Star("OH", "Ohio", "Birthplace of aviation", walleye, "citiesUrl");
 		stateRepo.save(ohio);
-		State hawaii = new State("HI", "Hawaii", "This islands of Aloha", triggerFish, "citiesUrl");
+		Star hawaii = new Star("HI", "Hawaii", "This islands of Aloha", triggerFish, "citiesUrl");
 		stateRepo.save(hawaii); 
-		State nebraska = new State("NE", "Nebraska", "Equality before the Law", channelCatFish , "citiesUrl");
+		Star nebraska = new Star("NE", "Nebraska", "Equality before the Law", channelCatFish , "citiesUrl");
 		stateRepo.save(nebraska); 
-		State texas = new State("TX", "Texas", "Friendship", guadalupe , "citiesUrl");
+		Star texas = new Star("TX", "Texas", "Friendship", guadalupe , "citiesUrl");
 		stateRepo.save(texas); 
 		
 		
-		
-		
-		
-		
-		
-		
+
 	}
 	
 	

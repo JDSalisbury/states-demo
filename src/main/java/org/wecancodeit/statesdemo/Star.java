@@ -1,12 +1,18 @@
 package org.wecancodeit.statesdemo;
 
+import java.util.Collection;
+import java.util.HashSet;
+import static java.util.Arrays.asList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 
 @Entity
-public class State {
+public class Star {
 
 	@Id
 	@GeneratedValue
@@ -15,22 +21,33 @@ public class State {
 	private String name;
 	private String motto;
 	private String citiesURL;
-	
+
 	@ManyToOne
 	private Fish fish;
 	
+	@OneToMany(mappedBy = "territory")
+	private Collection<City> cities;
 
-	protected State() {
+	protected Star() {
 
 	}
 
-	public State(String abb, String name, String motto, Fish fish, String citiesURL) {
+	public Star(String abb, String name, String motto, Fish fish, String citiesURL) {
 		this.abb = abb;
 		this.name = name;
 		this.motto = motto;
 		this.fish = fish;
 		this.citiesURL = citiesURL;
 
+	}
+
+	public Star(String abb, String name, String motto, Fish fish, String citiesURL, City... cities) {
+		this.abb = abb;
+		this.name = name;
+		this.motto = motto;
+		this.fish = fish;
+		this.citiesURL = citiesURL;
+		this.cities = new HashSet<>(asList(cities));
 	}
 
 	public String getName() {
@@ -52,9 +69,14 @@ public class State {
 	public String getAbb() {
 		return abb;
 	}
-	
+
 	public long getId() {
 		return id;
+	}
+
+	public Collection<City> getCities() {
+		
+		return cities;
 	}
 
 }

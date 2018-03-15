@@ -17,8 +17,8 @@ public class Fish {
 	private String bionomal;
 	private String imageURL;
 
-	@OneToMany
-	private Collection<State> states;
+	@OneToMany(mappedBy = "fish")
+	private Collection<Star> states;
 
 	protected Fish() {
 
@@ -47,7 +47,7 @@ public class Fish {
 		return id;
 	}
 
-	public Collection<State> getStates() {
+	public Collection<Star> getStates() {
 		return states;
 	}
 

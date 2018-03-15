@@ -1,6 +1,8 @@
 package org.wecancodeit.statesdemo;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 
 import javax.annotation.Resource;
@@ -47,7 +49,7 @@ public class MappingTest {
 		Fish underFish = new Fish("walleye", "Sander vitreus", "image/url");
 		underFish = fishRepo.save(underFish);
 		
-		State underState = new State("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
+		Star underState = new Star("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
 		underState = stateRepo.save(underState);
 		Long stateId = underState.getId();
 		
@@ -64,28 +66,28 @@ public class MappingTest {
 		Fish underFish = new Fish("walleye", "Sander vitreus", "image/url");
 		underFish = fishRepo.save(underFish);
 		
-		State underState = new State("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
+		Star underState = new Star("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
 		underState = stateRepo.save(underState); 
 		long stateId = underState.getId(); 
 		
 		assertThat(underState.getAbb(), is("OH"));
 	}
 	
-//	@Test
-//	public void shouldSaveAndLoadCitiesToState() {
-//		Fish underFish = new Fish("walleye", "Sander vitreus", "image/url");
-//		underFish = fishRepo.save(underFish);
-//		City columbus = new City("Columbus",1000);
-//		cityRepo.save(columbus);
-//		City cleveland =new City("Cleveland",800);
-//		cityRepo.save(cleveland);
-//		State underState = new State("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
-//		underState = stateRepo.save(underState); 
-//		long stateId = underState.getId(); 
-//		
-//		assertThat(underState.getCities())
-//		
-//	}
+	@Test
+	public void shouldSaveAndLoadCitiesToState() {
+		Fish underFish = new Fish("walleye", "Sander vitreus", "image/url");
+		underFish = fishRepo.save(underFish);
+		City columbus = new City("Columbus",1000);
+		cityRepo.save(columbus);
+		City cleveland =new City("Cleveland",800);
+		cityRepo.save(cleveland);
+		Star underState = new Star("OH", "Ohio", "Birthplace of aviation", underFish, "cities", columbus, cleveland);
+		underState = stateRepo.save(underState); 
+		long stateId = underState.getId(); 
+		
+		assertThat(underState.getCities(), containsInAnyOrder(columbus, cleveland));
+		
+	}
 	
 	
 }
