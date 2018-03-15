@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Fish {
 
@@ -16,7 +19,8 @@ public class Fish {
 	private String fishName;
 	private String bionomal;
 	private String imageURL;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "fish")
 	private Collection<Star> states;
 

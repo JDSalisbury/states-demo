@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class City {
@@ -16,7 +18,7 @@ public class City {
 	private String cityName;
 	private int pop;
 
-	
+//	@JsonIgnore
 	@ManyToOne
 	private Star territory;
 	
