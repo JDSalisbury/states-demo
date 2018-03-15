@@ -24,6 +24,10 @@ public class MappingTest {
 
 	@Resource
 	private StateRepository stateRepo;
+	
+	@Resource
+	private CityRepository cityRepo; 
+	
 
 	@Test
 	public void shouldSaveAndLoadFish() {
@@ -65,13 +69,23 @@ public class MappingTest {
 		long stateId = underState.getId(); 
 		
 		assertThat(underState.getAbb(), is("OH"));
-		
-	
-		
-		
-		
 	}
 	
+//	@Test
+//	public void shouldSaveAndLoadCitiesToState() {
+//		Fish underFish = new Fish("walleye", "Sander vitreus", "image/url");
+//		underFish = fishRepo.save(underFish);
+//		City columbus = new City("Columbus",1000);
+//		cityRepo.save(columbus);
+//		City cleveland =new City("Cleveland",800);
+//		cityRepo.save(cleveland);
+//		State underState = new State("OH", "Ohio", "Birthplace of aviation", underFish, "cities");
+//		underState = stateRepo.save(underState); 
+//		long stateId = underState.getId(); 
+//		
+//		assertThat(underState.getCities())
+//		
+//	}
 	
-
+	
 }
